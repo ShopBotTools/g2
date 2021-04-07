@@ -1689,7 +1689,7 @@ static void _exec_program_stop_end(cmMachineState machine_state)
     // The good news is we shouldn't need to queue much
 
     // If we are already out of cycle, then adjust the machine state
-    if ((cm->cycle_type == CYCLE_NONE) && // cm->cycle_type == CYCLE_MACHINING ||
+    if ((cm->cycle_type == CYCLE_NONE || cm->cycle_type == CYCLE_MACHINING) &&
         (cm->machine_state != MACHINE_ALARM) &&
         (cm->machine_state != MACHINE_SHUTDOWN)) {
         cm->machine_state = machine_state;                  // don't update macs/cycs if we're in the middle of a canned cycle,
